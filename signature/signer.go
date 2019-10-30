@@ -17,14 +17,15 @@ func Signer(params map[string]string) (string, error) {
 		keys = append(keys, key)
 	}
 
+	// sort in increasing order
 	sort.Strings(keys)
 
-	// genrate sign base string
+	// connect sign base string. key and value connect with ':'
+	// format:
+	// key1:value1key2:value2key3:value3
 	for _, key := range keys {
 		stringToSignBuilder.WriteString(key + ":" + params[key])
 	}
-
-	//fmt.Println("base string:", stringToSignBuilder.String())
 
 	return md5.Md5Bytes(stringToSignBuilder.Bytes()), nil
 }
