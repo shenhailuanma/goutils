@@ -1,5 +1,9 @@
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 github.com/dgrijalva/jwt-go
+# github.com/google/go-github v17.0.0+incompatible
+github.com/google/go-github/github
+# github.com/google/go-querystring v1.0.0
+github.com/google/go-querystring/query
 # github.com/klauspost/compress v1.8.2
 github.com/klauspost/compress/flate
 github.com/klauspost/compress/gzip
