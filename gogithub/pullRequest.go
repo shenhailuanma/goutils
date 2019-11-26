@@ -48,11 +48,11 @@ type PullRequest struct {
 }
 
 type CommitFile struct {
-	SHA         string `json:"sha"`
-	Filename    string `json:"filename"`
-	Changes     int    `json:"changes"`
-	Status      string `json:"status"`
-	Patch       string `json:"patch"`
+	SHA      string `json:"sha"`
+	Filename string `json:"filename"`
+	Changes  int    `json:"changes"`
+	Status   string `json:"status"`
+	Patch    string `json:"patch"`
 }
 
 func PullRequests(repo, owner string) ([]PullRequest, error) {
@@ -214,4 +214,33 @@ func (g *Gogithub) PullRequestListFiles(repo, owner string, number int) ([]Commi
 	}
 
 	return output, nil
+}
+
+func PullRequestUpdate(repo, owner string, number int, state string) error {
+	return defaultObj.PullRequestUpdate(repo, owner, number, state)
+}
+
+func (g *Gogithub) PullRequestUpdate(repo, owner string, number int, state string) error {
+
+	tp := github.BasicAuthTransport{
+		Username: strings.TrimSpace(g.Username),
+		Password: strings.TrimSpace(g.Password),
+	}
+
+	client := github.NewClient(tp.Client())
+
+	if owner == "" {
+		owner = g.Username
+	}
+
+	pull := github.PullRequest{}
+
+	pull.State = &state
+
+	_, _, err := client.PullRequests.Edit(context.Background(), owner, repo, number, &pull)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

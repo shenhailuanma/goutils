@@ -47,3 +47,12 @@ func TestGogithub_PullRequestListFiles(t *testing.T) {
 		fmt.Println("requst:", one)
 	}
 }
+
+func TestGogithub_PullRequestUpdate(t *testing.T) {
+	InitDefault(testUsername, testPassword)
+
+	err := PullRequestUpdate("toolkit", "", 1, "open")
+	if err != nil {
+		t.Error("error:", err.Error())
+	}
+}
