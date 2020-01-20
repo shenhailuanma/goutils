@@ -7,6 +7,10 @@ import (
 	"strings"
 )
 
+func TriggerRepositoryDispatch(repo, owner, eventType, payload string) error {
+	return defaultObj.TriggerRepositoryDispatch(repo, owner, eventType, payload)
+}
+
 func (g *Gogithub) TriggerRepositoryDispatch(repo, owner, eventType, payload string) error {
 
 
@@ -19,7 +23,7 @@ func (g *Gogithub) TriggerRepositoryDispatch(repo, owner, eventType, payload str
 
 	opts := github.DispatchRequestOptions{}
 	opts.EventType = eventType
-	opts.ClientPayload = &json.RawMessage{}
+	opts.ClientPayload = &json.RawMessage{}  // todo: payload
 
 	_, _, err := client.Repositories.Dispatch(context.Background(), owner, repo, opts)
 	if err != nil {
