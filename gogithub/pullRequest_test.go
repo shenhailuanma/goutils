@@ -5,14 +5,11 @@ import (
 	"testing"
 )
 
-var testUsername = "shenhailuanma"
-var testPassword = "" // password or personal access token
-
 func TestGogithub_PullRequests(t *testing.T) {
 
-	InitDefault(testUsername, testPassword)
+	InitDefault(configUsername, configPassword)
 
-	requests, err := PullRequests("toolkit", "")
+	requests, err := PullRequests(configRepo, configOwner)
 	if err != nil {
 		t.Error("error:", err.Error())
 	}
@@ -23,9 +20,9 @@ func TestGogithub_PullRequests(t *testing.T) {
 }
 
 func TestGogithub_PullRequestsFilter(t *testing.T) {
-	InitDefault(testUsername, testPassword)
+	InitDefault(configUsername, configPassword)
 
-	requests, err := PullRequestsFilter("toolkit", "", "shenhailuanma:test", "master", "all")
+	requests, err := PullRequestsFilter(configRepo, configOwner, "shenhailuanma:test", "master", "all")
 	if err != nil {
 		t.Error("error:", err.Error())
 	}
@@ -36,9 +33,9 @@ func TestGogithub_PullRequestsFilter(t *testing.T) {
 }
 
 func TestGogithub_PullRequestListFiles(t *testing.T) {
-	InitDefault(testUsername, testPassword)
+	InitDefault(configUsername, configPassword)
 
-	files, err := PullRequestListFiles("toolkit", "", 1)
+	files, err := PullRequestListFiles(configRepo, configOwner, 1)
 	if err != nil {
 		t.Error("error:", err.Error())
 	}
@@ -49,9 +46,9 @@ func TestGogithub_PullRequestListFiles(t *testing.T) {
 }
 
 func TestGogithub_PullRequestUpdate(t *testing.T) {
-	InitDefault(testUsername, testPassword)
+	InitDefault(configUsername, configPassword)
 
-	err := PullRequestUpdate("toolkit", "", 1, "open")
+	err := PullRequestUpdate(configRepo, configOwner, 1, "open")
 	if err != nil {
 		t.Error("error:", err.Error())
 	}
