@@ -1,0 +1,13 @@
+name: Dispatch testing
+on:
+  repository_dispatch:
+    types: testing
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "test"
+        
