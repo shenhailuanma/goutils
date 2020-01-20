@@ -2,7 +2,7 @@ package gogithub
 
 import (
 	"context"
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v29/github"
 	"strings"
 )
 
