@@ -11,7 +11,11 @@ import (
 // See examples for how to use this with your own claim types
 type TokenClaims struct {
 	jwt.StandardClaims
-	Uid int `json:"uid"`
+	TokenKind    int `json:"kin,omitempty"`
+	AccountID    int `json:"aid,omitempty"`
+	Port         int `json:"port,omitempty"`
+	SessionLimit int `json:"slt,omitempty"`
+	Uid          int `json:"uid,omitempty"`
 }
 
 func CreateToken(key string, m map[string]interface{}) string {
@@ -63,16 +67,32 @@ func ParseTokenWithClaims(tokenString string, key string) (*TokenClaims, bool) {
 	token, err := jwt.ParseWithClaims(tokenString, &TokenClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(key), nil
 	})
+	if err != nil {
+		fmt.Println("ParseTokenWithClaims, error:", err.Error())
+		return nil, false
+	}
 
 	if claims, ok := token.Claims.(*TokenClaims); ok && token.Valid {
 		return claims, true
-
 	} else {
-		fmt.Println(err)
 		return nil, false
 	}
 }
 
 func ParseTokenWithClaimsDefault(tokenString string) (*TokenClaims, bool) {
 	return ParseTokenWithClaims(tokenString, gDefaultTokenKey)
+}
+
+func ParseTokenWithClaimsUnverified(tokenString string) (*TokenClaims, bool) {
+	token, _, err := new(jwt.Parser).ParseUnverified(tokenString, &TokenClaims{})
+	if err != nil {
+		fmt.Println("ParseTokenWithClaimsUnverified, error:", err.Error())
+		return nil, false
+	}
+
+	if claims, ok := token.Claims.(*TokenClaims); ok {
+		return claims, true
+	} else {
+		return nil, false
+	}
 }
