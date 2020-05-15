@@ -18,4 +18,9 @@ func Test_Random(t *testing.T)  {
 	t.Log(RandomNumberString(6))
 	t.Log(RandomNumberString(10))
 	t.Log(RandomNumberString(16))
+
+	t.Log(RandomStringBase62(6))
+	t.Log(RandomStringBase62(10))
+	t.Log(RandomStringBase62(16))
+	t.Log(RandomStringBase62(32))
 }
