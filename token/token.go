@@ -16,7 +16,7 @@ type TokenClaims struct {
 	Port         int      `json:"port,omitempty"`
 	SessionLimit int      `json:"slt,omitempty"`
 	Uid          int      `json:"uid,omitempty"`
-	Companyid    int      `json:"cid,omitempty"`
+	CompanyID    int      `json:"cid,omitempty"`
 	Roles        []string `json:"roles,omitempty"`
 }
 
