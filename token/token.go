@@ -11,15 +11,16 @@ import (
 // See examples for how to use this with your own claim types
 type TokenClaims struct {
 	jwt.StandardClaims
-	TokenKind    int      `json:"kin,omitempty"`
-	AccountID    int      `json:"aid,omitempty"`
-	Port         int      `json:"port,omitempty"`
-	SessionLimit int      `json:"slt,omitempty"`
-	Uid          int      `json:"uid,omitempty"`
-	CompanyID    int      `json:"cid,omitempty"`
-	CompanyKind  string   `json:"ckind,omitempty"`
-	PID          int      `json:"pid,omitempty"`
-	Roles        []string `json:"roles,omitempty"`
+	TokenKind    int                    `json:"kin,omitempty"`
+	AccountID    int                    `json:"aid,omitempty"`
+	Port         int                    `json:"port,omitempty"`
+	SessionLimit int                    `json:"slt,omitempty"`
+	Uid          int                    `json:"uid,omitempty"`
+	CompanyID    int                    `json:"cid,omitempty"`
+	CompanyKind  string                 `json:"ckind,omitempty"`
+	PID          int                    `json:"pid,omitempty"`
+	Roles        []string               `json:"roles,omitempty"`
+	License      map[string]interface{} `json:"license,omitempty"`
 }
 
 func CreateToken(key string, m map[string]interface{}) string {
