@@ -1,3 +1,5 @@
+# github.com/andybalholm/brotli v1.0.4
+github.com/andybalholm/brotli
 # github.com/dgrijalva/jwt-go v3.2.0+incompatible
 github.com/dgrijalva/jwt-go
 # github.com/google/go-github/v29 v29.0.2
@@ -6,12 +8,10 @@ github.com/google/go-github/v29/github
 github.com/google/go-querystring/query
 # github.com/gorilla/websocket v1.2.0
 github.com/gorilla/websocket
-# github.com/klauspost/compress v1.8.2
+# github.com/klauspost/compress v1.15.0
 github.com/klauspost/compress/flate
 github.com/klauspost/compress/gzip
 github.com/klauspost/compress/zlib
-# github.com/klauspost/cpuid v1.2.1
-github.com/klauspost/cpuid
 # github.com/nlopes/slack v0.6.0
 github.com/nlopes/slack
 github.com/nlopes/slack/internal/errorsx
@@ -21,18 +21,18 @@ github.com/nlopes/slack/slackutilsx
 github.com/pkg/errors
 # github.com/valyala/bytebufferpool v1.0.0
 github.com/valyala/bytebufferpool
-# github.com/valyala/fasthttp v1.5.0
+# github.com/valyala/fasthttp v1.34.0
 github.com/valyala/fasthttp
 github.com/valyala/fasthttp/fasthttputil
 github.com/valyala/fasthttp/stackless
-# golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
+# golang.org/x/crypto v0.0.0-20220214200702-86341886e292
+golang.org/x/crypto/cast5
 golang.org/x/crypto/openpgp
 golang.org/x/crypto/openpgp/armor
+golang.org/x/crypto/openpgp/elgamal
 golang.org/x/crypto/openpgp/errors
 golang.org/x/crypto/openpgp/packet
 golang.org/x/crypto/openpgp/s2k
-golang.org/x/crypto/cast5
-golang.org/x/crypto/openpgp/elgamal
 # gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc
 gopkg.in/alexcesaro/quotedprintable.v3
 # gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
