@@ -21,6 +21,7 @@ type TokenClaims struct {
 	PID          int                    `json:"pid,omitempty"`
 	Roles        []string               `json:"roles,omitempty"`
 	License      map[string]interface{} `json:"license,omitempty"`
+	Layouts      map[string]interface{} `json:"layouts,omitempty"`
 }
 
 func CreateToken(key string, m map[string]interface{}) string {
@@ -30,7 +31,6 @@ func CreateToken(key string, m map[string]interface{}) string {
 	for index, val := range m {
 		claims[index] = val
 	}
-	// fmt.Println(_map)
 	token.Claims = claims
 	tokenString, _ := token.SignedString([]byte(key))
 	return tokenString
