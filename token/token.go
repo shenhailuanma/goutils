@@ -21,7 +21,7 @@ type TokenClaims struct {
 	PID          int                    `json:"pid,omitempty"`
 	Roles        []string               `json:"roles,omitempty"`
 	License      map[string]interface{} `json:"license,omitempty"`
-	Layouts      map[string]interface{} `json:"layouts,omitempty"`
+	Layouts      interface{}            `json:"layouts,omitempty"`
 }
 
 func CreateToken(key string, m map[string]interface{}) string {
